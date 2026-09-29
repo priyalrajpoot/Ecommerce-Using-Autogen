@@ -1,0 +1,89 @@
+# 🤖 AutoGen RAG E-Commerce Assistant
+
+A simple **Retrieval-Augmented Generation (RAG)** project built with **AutoGen and ChromaDB**.
+
+The system searches product and order information stored in ChromaDB using specialized AutoGen agents and then uses a writer agent to generate the final answer.
+
+## 🚀 Features
+
+* 🔎 Product and order search using **ChromaDB**
+* 🤖 Multiple **AutoGen agents**
+* 👥 GroupChat for coordinating search agents
+* 🧠 RAG-based question answering
+* ✍️ Writer agent for generating the final response
+* ⚡ Asynchronous agent conversations
+
+## 🏗️ Architecture
+
+```text
+User Question
+      ↓
+AutoGen Search Agents
+      ↓
+ChromaDB
+ ┌────┴─────┐
+ ↓          ↓
+Products   Orders
+ └────┬─────┘
+      ↓
+Retrieved Information
+      ↓
+Writer Agent
+      ↓
+Final Answer
+```
+
+## 🛠️ Tech Stack
+
+* Python
+* AutoGen
+* ChromaDB
+* OpenAI GPT-4o
+* CSV
+* Jupyter Notebook
+
+## 📂 Data
+
+The project uses:
+
+* `products.csv` — product information
+* `orders.csv` — customer order information
+
+The CSV data is loaded into separate ChromaDB collections:
+
+```text
+products
+orders
+```
+
+## ⚙️ Setup
+
+Install the required packages:
+
+```bash
+pip install autogen chromadb python-dotenv
+```
+
+Set your OpenAI API key using an environment variable:
+
+```env
+OPENAI_API_KEY=your_api_key
+```
+
+Then run the notebook and execute the cells in order.
+
+## 💡 Example Questions
+
+```text
+What is Artisanal Air?
+```
+
+```text
+What did Ned Noodle order?
+```
+
+The search agents retrieve the relevant information from ChromaDB, and the writer agent generates the final response.
+
+## 📌 Purpose
+
+This project demonstrates how **AutoGen multi-agent conversations can be combined with ChromaDB-based retrieval to build a simple RAG application**.
